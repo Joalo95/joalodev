@@ -1,0 +1,218 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section color="white" id="skills">
+  <div slot="footer" class="gap-x-6 flex mx-auto">
+    <div class="container">
+      <div class="cube front"></div>
+      <div class="cube back"></div>
+      <div class="cube left"></div>
+      <div class="cube right"></div>
+      <div class="cube top"></div>
+      <div class="cube bottom"></div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-face card-front">
+          <h2>My Skills</h2>
+          <img src="little_coder-transparent.png" alt="" />
+        </div>
+        <div class="card-face card-back">
+          <div class="slide-container">
+            <div class="slide active">
+              <h2 class="text-lg p-4">Back End</h2>
+              <h3 class="text-sm p-2">Node.js | Python | Java</h3>
+              <img
+                class="slide-image"
+                src="api-configuration.png"
+                alt="Slide 1"
+              />
+            </div>
+            <div class="slide">
+              <h2 class="text-lg p-4">Front End</h2>
+              <h3 class="text-sm p-2">React | HTML5 | CSS3</h3>
+              <img class="slide-image" src="web-template.png" alt="Slide 2" />
+            </div>
+            <div class="slide">
+              <h2 class="text-lg p-4">Data Bases</h2>
+              <h3 class="text-sm p-2">
+                PostgreSQL | MySQL | SQL Server | MongoDB | Supabase
+              </h3>
+              <img class="slide-image" src="cloud-server.png" alt="Slide 3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img
+    slot="background"
+    alt=""
+    class="h-full w-full object-cover object-center"
+    src="/mountains-cuatro.jpg"
+  />
+</Section>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    perspective: 1000px;
+  }
+
+  .card-container {
+    perspective: 1000px;
+  }
+
+  .card {
+    position: relative;
+    left: -17rem;
+    top: -5rem;
+    width: 300px;
+    height: 400px;
+    margin: 50px auto;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+  }
+
+  .card:hover {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .card-front {
+    backdrop-filter: blur(7px) saturate(150%);
+    -webkit-backdrop-filter: blur(7px) saturate(150%);
+    background-color: rgba(17, 25, 40, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .card-front img {
+    border-radius: 12px;
+    object-fit: cover;
+    width: 15rem;
+    height: 20rem;
+  }
+
+  .card-back {
+    backdrop-filter: blur(7px) saturate(150%);
+    -webkit-backdrop-filter: blur(7px) saturate(150%);
+    background-color: rgba(17, 25, 40, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide {
+    display: none;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    transform-style: preserve-3d;
+    animation: rotate 30s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: translateZ(-200px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+      transform: translateZ(-200px) rotateX(360deg) rotateY(360deg)
+        rotateZ(360deg);
+    }
+  }
+
+  .cube {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .front {
+    transform: translateZ(100px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(100px);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(100px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+</style>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  function showSlide(slideIndex) {
+    slides.forEach((slide, index) => {
+      if (index === slideIndex) {
+        slide.classList.add("active");
+      } else {
+        slide.classList.remove("active");
+      }
+    });
+  }
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 3000);
+</script>
