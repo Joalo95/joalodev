@@ -3,18 +3,12 @@ import Section from "./Section.astro";
 ---
 
 <Section color="white" id="skills">
-  <div slot="footer" class="gap-x-6 flex mx-auto">
-    <div class="container">
-      <div class="cube front"></div>
-      <div class="cube back"></div>
-      <div class="cube left"></div>
-      <div class="cube right"></div>
-      <div class="cube top"></div>
-      <div class="cube bottom"></div>
-    </div>
-
+  <div
+    slot="footer"
+    class="sm:flex-col md:flex-col lg:flex-col sm:px-3 gap-x-6 flex mx-auto"
+  >
     <div class="card-container">
-      <div class="card">
+      <div class="card sm:w-[300px] md:w-[400px]">
         <div class="card-face card-front">
           <h2>My Skills</h2>
           <img src="little_coder-transparent.png" alt="" />
@@ -69,13 +63,12 @@ import Section from "./Section.astro";
 
   .card {
     position: relative;
-    left: -17rem;
-    top: -5rem;
-    width: 300px;
-    height: 400px;
+    top: -4rem;
     margin: 50px auto;
     transform-style: preserve-3d;
     transition: transform 0.8s;
+    width: 600px;
+    height: 400px;
   }
 
   .card:hover {
@@ -87,6 +80,10 @@ import Section from "./Section.astro";
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .card-front {
@@ -95,17 +92,19 @@ import Section from "./Section.astro";
     background-color: rgba(17, 25, 40, 0.6);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
   }
-
   .card-front img {
     border-radius: 12px;
     object-fit: cover;
     width: 15rem;
     height: 20rem;
+  }
+
+  .slide-image {
+    border-radius: 12px;
+    object-fit: cover;
+    width: 15rem;
+    height: 15rem;
   }
 
   .card-back {
@@ -115,18 +114,12 @@ import Section from "./Section.astro";
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .slide-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .slide {
@@ -134,66 +127,10 @@ import Section from "./Section.astro";
   }
 
   .slide.active {
-    display: block;
-  }
-
-  .slide-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 600px;
-    transform-style: preserve-3d;
-    animation: rotate 30s linear infinite;
-  }
-
-  @keyframes rotate {
-    0% {
-      transform: translateZ(-200px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    }
-    100% {
-      transform: translateZ(-200px) rotateX(360deg) rotateY(360deg)
-        rotateZ(360deg);
-    }
-  }
-
-  .cube {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .front {
-    transform: translateZ(100px);
-  }
-
-  .back {
-    transform: rotateY(180deg) translateZ(100px);
-  }
-
-  .left {
-    transform: rotateY(-90deg) translateZ(100px);
-  }
-
-  .right {
-    transform: rotateY(90deg) translateZ(100px);
-  }
-
-  .top {
-    transform: rotateX(90deg) translateZ(100px);
-  }
-
-  .bottom {
-    transform: rotateX(-90deg) translateZ(100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 </style>
 
