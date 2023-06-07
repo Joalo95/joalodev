@@ -1,0 +1,35 @@
+---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+---
+
+<Section color="white" id="skills">
+  <div
+    slot="footer"
+    class="sm:flex-col md:flex-col lg:flex-col sm:px-3 gap-x-6 flex mx-auto"
+  >
+    <Card
+      title="My Skills"
+      img="little_coder-transparent.png"
+      subtitle1="Back End"
+      parrafo1="Node.js | Python | Java"
+      img1="api-configuration.png"
+      subtitle2="Front End"
+      parrafo2="React | HTML5 | CSS3"
+      img2="web-template.png"
+      subtitle3="Database"
+      parrafo3="PostgreSQL | MySQL | SQL Server | MongoDB | Supabase"
+      img3="cloud-server.png"
+      subtitle4="Data Analyst"
+      parrafo4="Power BI | Matplotlib | NumPy | Pandas | Jupyter Notebook"
+      img4="online-analysis.png"
+    />
+  </div>
+
+  <img
+    slot="background"
+    alt=""
+    class="h-full w-full object-cover object-center"
+    src="/mountains-cuatro.jpg"
+  />
+</Section>
