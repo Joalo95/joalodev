@@ -7,8 +7,8 @@ module.exports = {
 		},
 		extend: {},
 		screens: {
-			'sm': { 'min': '360px', 'max': '767px' },
-			// => @media (min-width: 640px and max-width: 767px) { ... }
+			'sm': { 'min': '340px', 'max': '767px' },
+			// => @media (min-width: 340px and max-width: 767px) { ... }
 
 			'md': { 'min': '768px', 'max': '1023px' },
 			// => @media (min-width: 768px and max-width: 1023px) { ... }
