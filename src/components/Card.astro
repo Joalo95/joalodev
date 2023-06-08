@@ -18,57 +18,62 @@ const {
 ---
 
 <section class="card-container">
-    <div class="card sm:w-screen md:w-[400px] sm:h-[400px] md:h-[400px]">
-        <div class="card-face card-front">
+    <div class="card sm:w-[90vw] sm:h-[400px] md:w-[90vw] md:h-[400px]">
+        <div class="card-face card-front w-[90vw] h-[70vh]">
             <h2>{title}</h2>
-            <img src={img} alt="" />
+            <img
+                class="w-[15rem] h-[20rem] rounded-[15px] object-cover"
+                src={img}
+                alt=""
+            />
         </div>
-        <div class="card-face card-back">
+        <div class="card-face card-back w-[90vw] h-[70vh]">
             <div class="slide-container">
                 <div class="slide active">
                     <h2 class="text-lg p-4">{subtitle1}</h2>
                     <h3 class="text-sm p-2">{parrafo1}</h3>
-                    <img class="slide-image" src={img1} alt="" />
+                    <img
+                        class="w-[15rem] h-[15rem] rounded-[15px] object-cover"
+                        src={img1}
+                        alt=""
+                    />
                 </div>
                 <div class="slide">
                     <h2 class="text-lg p-4">{subtitle2}</h2>
                     <h3 class="text-sm p-2">{parrafo2}</h3>
-                    <img class="slide-image" src={img2} alt="" />
+                    <img
+                        class="w-[15rem] h-[15rem] rounded-[15px] object-cover"
+                        src={img2}
+                        alt=""
+                    />
                 </div>
                 <div class="slide">
                     <h2 class="text-lg p-4">{subtitle3}</h2>
                     <h3 class="text-sm p-2">{parrafo3}</h3>
-                    <img class="slide-image" src={img3} alt="" />
+                    <img
+                        class="w-[15rem] h-[15rem] rounded-[15px] object-cover"
+                        src={img3}
+                        alt=""
+                    />
                 </div>
                 <div class="slide">
                     <h2 class="text-lg p-4">{subtitle4}</h2>
                     <h3 class="text-sm p-2">{parrafo4}</h3>
-                    <img class="slide-image" src={img4} alt="" />
+                    <img
+                        class="w-[15rem] h-[15rem] rounded-[15px] object-cover"
+                        src={img4}
+                        alt=""
+                    />
                 </div>
             </div>
         </div>
     </div>
 </section>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        perspective: 1000px;
-    }
-
-    .card-container {
-        perspective: 1000px;
-    }
-
     .card {
         position: relative;
-        top: -4rem;
-        margin: 50px auto;
         transform-style: preserve-3d;
         transition: transform 0.8s;
-        width: 600px;
-        height: 400px;
     }
 
     .card:hover {
@@ -77,48 +82,27 @@ const {
 
     .card-face {
         position: absolute;
-        width: 100%;
-        height: 100%;
         backface-visibility: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
     }
 
-    .card-front {
-        backdrop-filter: blur(7px) saturate(150%);
-        -webkit-backdrop-filter: blur(7px) saturate(150%);
-        background-color: rgba(17, 25, 40, 0.6);
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.125);
-    }
-    .card-front img {
-        border-radius: 12px;
-        object-fit: cover;
-        width: 15rem;
-        height: 20rem;
-    }
-
-    .slide-image {
-        border-radius: 12px;
-        object-fit: cover;
-        width: 15rem;
-        height: 15rem;
-    }
-
+    .card-front,
     .card-back {
         backdrop-filter: blur(7px) saturate(150%);
         -webkit-backdrop-filter: blur(7px) saturate(150%);
         background-color: rgba(17, 25, 40, 0.6);
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.125);
+    }
+
+    .card-back {
         transform: rotateY(180deg);
     }
 
     .slide-container {
-        width: 100%;
-        height: 100%;
         overflow: hidden;
     }
 

@@ -4,7 +4,7 @@ const textColor = `text-${color}`;
 ---
 
 <section
-  class="landing-section sm:w-screen md:w-screen bg-black h-screen w-[calc(100vw-1.1rem)] text-center overflow-hidden relative"
+  class="landing-section sm:w-[calc(100vw-1.1rem)] md:w-[calc(100vw-1.1rem)] bg-black h-screen w-[calc(100vw-1.1rem)] text-center overflow-hidden relative"
   data-header-color={color}
   id={id}
 >
@@ -18,7 +18,7 @@ const textColor = `text-${color}`;
       </p>
     </header>
 
-    <footer class="flex flex-col flex-grow justify-end pb-20">
+    <footer class="flex flex-col flex-grow justify-end items-center pb-20">
       <slot name="footer" />
     </footer>
   </div>
